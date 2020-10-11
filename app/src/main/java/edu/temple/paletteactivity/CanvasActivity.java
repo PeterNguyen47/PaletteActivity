@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class CanvasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_canvas);
 
         // Set Canvas Activity Label
-        getSupportActionBar().setTitle("Canvas Activity");
+        getSupportActionBar().setTitle(R.string.canvas_name);
         Log.d("CanvasActivity", "Action Bar Set to Canvas Activity: " + (getSupportActionBar() != null));
 
         canvasTextView = findViewById(R.id.canvasTextView);

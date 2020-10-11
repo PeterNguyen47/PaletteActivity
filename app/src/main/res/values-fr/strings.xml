@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Application de changement de couleur</string>
+    <string name="canvas_name">Activité de toile</string>
+    <string name="palette_name">Activité de la palette</string>
+    <string name="canvas_color_name">Couleur de la toile</string>
+    <string name="instructions">Cliquez sur une couleur ci-dessous pour lancer le canevas</string>
+    <string name="green">Vert</string>
+    <string name="white">Blanc</string>
+    <string name="black">Noir</string>
+    <string name="cyan">Cyan</string>
+    <string name="magenta">Magenta</string>
+    <string name="yellow">Jaune</string>
+    <string name="gray">Gris</string>
+    <string name="red">Rouge</string>
+    <string name="blue">Bleu</string>
+    <string-array name="colors_array">
+        <item>Vert</item>
+        <item>Blanc</item>
+        <item>Noir</item>
+        <item>Cyan</item>
+        <item>Magenta</item>
+        <item>Jaune</item>
+        <item>Gris</item>
+        <item>Rouge</item>
+        <item>Bleu</item>
+    </string-array>
+
+</resources>

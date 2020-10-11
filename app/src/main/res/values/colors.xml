@@ -3,4 +3,24 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="Green">#ff00ff00</color>
+    <color name="White">#ffffffff</color>
+    <color name="Black">#ff000000</color>
+    <color name="Cyan">#ff00ffff</color>
+    <color name="Magenta">#ffff00ff</color>
+    <color name="Yellow">#ffffff00</color>
+    <color name="Gray">#ff888888</color>
+    <color name="Red">#ffff0000</color>
+    <color name="Blue">#ff0000ff</color>
+    <array name="colorPalette">
+        <item>@color/Green</item>
+        <item>@color/White</item>
+        <item>@color/Black</item>
+        <item>@color/Cyan</item>
+        <item>@color/Magenta</item>
+        <item>@color/Yellow</item>
+        <item>@color/Gray</item>
+        <item>@color/Red</item>
+        <item>@color/Blue</item>
+    </array>
 </resources>
