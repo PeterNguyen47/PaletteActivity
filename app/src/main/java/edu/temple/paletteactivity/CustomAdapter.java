@@ -51,9 +51,6 @@ public class CustomAdapter extends BaseAdapter {
         customTextView = new TextView(context);
         Log.d("PaletteActivity", "customTextView is found: " + true);
 
-        // Fill in String of colors into Grid View of corresponding color
-        // final String[] pnColors = {"Green","White","Black","Cyan","Magenta","Yellow","Gray","Red","Blue"};
-
         // Set Black Grid Text to be visible
         if (position == 2){
             customTextView.setTextColor(Color.WHITE);
