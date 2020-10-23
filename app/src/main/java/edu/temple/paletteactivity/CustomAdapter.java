@@ -11,28 +11,27 @@ import android.widget.TextView;
 
 public class CustomAdapter extends BaseAdapter {
 
-    public static int[] pnColors;
+    int[] colors;
     Context context;
     TextView customTextView;
     // Adding resources
     Resources resources;
 
-    public CustomAdapter(Context context, int[] pnColors) {
+    public CustomAdapter(Context context, int[] colors) {
         this.context = context;
-        CustomAdapter.pnColors = pnColors;
+        this.colors = colors;
     }
 
     @Override
     public int getCount() {
-        Log.d("PaletteActivity", "pnColors size is: " + pnColors.length);
-        return pnColors.length;
-
+            Log.d("MainActivity", "pnColors size is: " + colors.length);
+            return colors.length;
     }
 
     @Override
     public Object getItem(int position) {
-        Log.d("PaletteActivity", "Color position is: " + position);
-        return pnColors[position];
+        Log.d("MainActivity", "Color position is: " + position);
+        return colors[position];
     }
 
     @Override
@@ -46,24 +45,27 @@ public class CustomAdapter extends BaseAdapter {
 
         // String array (update), fills in String of color names into Grid View via resources
         resources = context.getResources();
-        String[] pnColors = resources.getStringArray(R.array.colors_array);
 
         customTextView = new TextView(context);
-        Log.d("PaletteActivity", "customTextView is found: " + true);
+        Log.d("MainActivity", "customTextView is found: " + true);
 
-        // Set Black Grid Text to be visible
-        if (position == 2){
+        // Set Back ground color into Grid View
+        customTextView.setBackgroundResource(colors[position]);
+
+        if (position == 2) {
+            customTextView.setTextColor(Color.WHITE);
+        }
+        else if (position == 8) {
             customTextView.setTextColor(Color.WHITE);
         }
 
         // Set the text of color string array into Grid View
+        customTextView.setText(resources.getResourceEntryName(colors[position]));
+
         // Set the padding to give space similar to assignment example
-        // Set Back ground color into Grid View
-        // Set Text Size
-        customTextView.setText(pnColors[position]);
-        customTextView.setPadding(50,50,50,50);
-        customTextView.setBackgroundColor(CustomAdapter.pnColors[position]);
-        customTextView.setTextSize(18);
+        // Set Text Size in Grid
+        customTextView.setPadding(55,80,55,80);
+        customTextView.setTextSize(20);
 
         return customTextView;
     }

@@ -5,7 +5,8 @@
     <string name="palette_name">Activité de la palette</string>
     <string name="canvas_color_name">Couleur de la toile</string>
     <string name="instructions">Cliquez sur une couleur ci-dessous pour lancer le canevas</string>
-    <string-array name="colors_array">
+    <string name="canvasFragmentText">La couleur montrera ici</string>
+    <string-array name="colors">
         <item>Vert</item>
         <item>Blanc</item>
         <item>Noir</item>

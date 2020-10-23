@@ -1,10 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Color Changing App</string>
     <string name="canvas_name">Canvas Activity</string>
     <string name="palette_name">Palette Activity</string>
     <string name="canvas_color_name">Canvas Color</string>
     <string name="instructions">Click a color below to launch the Canvas</string>
-    <string-array name="colors_array">
+    <string name="canvasFragmentText">Color will show here</string>
+    <string-array name="colors">
         <item>Green</item>
         <item>White</item>
         <item>Black</item>
