@@ -13,22 +13,18 @@ public class MainActivity extends AppCompatActivity implements PaletteFragment.C
     CanvasFragment canvasFragment;
     FragmentManager fm;
 
-    int[] colorIds = {
-                R.color.Green,
-                R.color.White,
-                R.color.Black,
-                R.color.Cyan,
-                R.color.Magenta,
-                R.color.Yellow,
-                R.color.Gray,
-                R.color.Red,
-                R.color.Blue,
-        };
+    int[] colors;
+    String[] colorNames;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Get resources to use for color array and color names array
+        Resources resources = this.getResources();
+        this.colors = resources.getIntArray(R.array.colorPalette);
+        this.colorNames = resources.getStringArray(R.array.colors);
 
         // Set Palette Activity label
         getSupportActionBar().setTitle(R.string.palette_name);
@@ -39,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements PaletteFragment.C
 
         if (!(fm.findFragmentById(R.id.container_1) instanceof CanvasFragment)) {
             fm.beginTransaction()
-                    .add(R.id.container_1, PaletteFragment.newInstance(colorIds))
+                    .add(R.id.container_1, PaletteFragment.newInstance(colors, colorNames))
                     .commit();
         }
         else {
@@ -51,20 +47,21 @@ public class MainActivity extends AppCompatActivity implements PaletteFragment.C
 
         // Display Background color when a selection is made (2 containers in activity)
         @Override
-        public void colorSelected(int index) {
-            CanvasFragment newFragment = new CanvasFragment();
+        public void colorSelected(int color, String colorName) {
+            CanvasFragment canvasFragment = new CanvasFragment();
             Bundle args = new Bundle();
-            args.putInt(CanvasFragment.COLORID_KEY, index);
-            newFragment.setArguments(args);
+            args.putInt(CanvasFragment.COLORID_KEY, color);
+            args.putString(CanvasFragment.COLORNAME_KEY, colorName);
+            canvasFragment.setArguments(args);
 
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
             // Replace whatever is in the fragment_container view with this fragment,
             // and add the transaction to the back stack so the user can navigate back
-            transaction.replace(R.id.container_2, newFragment);
-            transaction.addToBackStack(null);
+            fragmentTransaction.replace(R.id.container_2, canvasFragment);
+            fragmentTransaction.addToBackStack(null);
 
             // Commit the transaction
-            transaction.commit();
+            fragmentTransaction.commit();
             }
         }

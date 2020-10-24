@@ -14,12 +14,12 @@ public class CustomAdapter extends BaseAdapter {
     int[] colors;
     Context context;
     TextView customTextView;
-    // Adding resources
-    Resources resources;
+    String[] colorNames;
 
-    public CustomAdapter(Context context, int[] colors) {
+    public CustomAdapter(Context context, int[] colors, String[] colorNames) {
         this.context = context;
         this.colors = colors;
+        this.colorNames = colorNames;
     }
 
     @Override
@@ -43,15 +43,16 @@ public class CustomAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        // String array (update), fills in String of color names into Grid View via resources
-        resources = context.getResources();
-
         customTextView = new TextView(context);
         Log.d("MainActivity", "customTextView is found: " + true);
 
         // Set Back ground color into Grid View
-        customTextView.setBackgroundResource(colors[position]);
+        customTextView.setBackgroundColor(colors[position]);
 
+        // Set the text of color string array into Grid View
+        customTextView.setText(colorNames[position]);
+
+        // Change text color of Grid for Black and Blue for better visual
         if (position == 2) {
             customTextView.setTextColor(Color.WHITE);
         }
@@ -59,12 +60,9 @@ public class CustomAdapter extends BaseAdapter {
             customTextView.setTextColor(Color.WHITE);
         }
 
-        // Set the text of color string array into Grid View
-        customTextView.setText(resources.getResourceEntryName(colors[position]));
-
-        // Set the padding to give space similar to assignment example
-        // Set Text Size in Grid
+        // Set the padding to give space in each grid
         customTextView.setPadding(55,80,55,80);
+        // Set text size in grid
         customTextView.setTextSize(20);
 
         return customTextView;
